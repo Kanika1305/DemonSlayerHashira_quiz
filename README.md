@@ -1,4 +1,5 @@
 # Demon Slayer Quiz
+![Demon Slayer Hashira Quiz](ds.jpg)
 
 Welcome to the **Demon Slayer Quiz**! This interactive quiz allows users to discover which Demon Slayer Hashira they are most like based on their answers to a series of fun and engaging questions.
 
