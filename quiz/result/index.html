@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Result</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: 'j1';
+            src: url('/fonts/JapanKimonoPersonalUseOnly-R9qXl.otf');
+        }
+        @font-face {
+            font-family: 'j2';
+            src: url('/fonts/JapanDaisuki-8OeaZ.otf');
+        }
+
+        body {
+            background-image: url('/images/bg2.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow-x: hidden;
+            font-family: j1;
+        }
+
+        /* Header Styling */
+        header {
+            height: 13vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #16012b, #160124, #4309b7);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(64, 4, 204, 0.8);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #f7f6f8eb;
+            position: relative;
+            text-align: center;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #131212, 0 0 20px #600db3, 0 0 30px #cba7ce; }
+            100% { text-shadow: 0 0 20px #131212, 0 0 40px #8607b0, 0 0 60px #dad5df; }
+        }
+
+        /* Main Content Styling */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #fbf8fceb;
+            text-shadow:  0 0 15px #131212, 0 0 10px #400dae, 0 0 20px #dad5df;
+            text-align: center;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-family: j2;
+            font-size: 1.5rem;
+            color: #f8f7f6eb;
+            text-align: center;
+            text-shadow:  0 0 15px #131212, 0 0 10px #400dae, 0 0 20px #dad5df;
+
+        }
+
+        #image-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #character-img {
+            max-width: 300px;
+            height: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(145, 12, 222, 0.8);
+            display: block;
+            margin: 0 auto;
+        }
+
+        #character-name {
+            margin-top: 10px;
+            font-family: j2;
+            font-size: 1.5rem;
+            color: #f8f7f6eb;
+            text-align: center;
+            text-shadow:  0 0 15px #131212, 0 0 10px #400dae, 0 0 20px #dad5df;
+
+            }
+        #quiz-section{
+            max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #010101, 0 0 20px  #7e03ea, 0 0 5px #1502e8;
+    border: #c2aae9 2px solid;
+    position: relative;
+    z-index: 2;
+    font-family: j2;
+    font-size: 1.3em;
+   text-align: center;
+   top:-50px;
+        }
+        footer {
+            background: linear-gradient(45deg, #16012b, #160124, #4309b7);
+            text-align: center;
+            padding: 20px 5px;
+            position: relative;
+            font-family: j2;
+            width: 100%;
+            height: 8vh;
+            box-shadow: 0 0 12px rgba(64, 4, 204, 0.8);
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            animation: glow 2s infinite alternate;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+    
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 2rem; 
+    }
+
+    h2 {
+        font-size: 2rem; 
+    }
+
+    #quiz-section {
+        max-width: 90%; 
+        padding: 20px; 
+        top: -30px; 
+    }
+
+    #character-img {
+        max-width: 250px; 
+        height: 300px; 
+    }
+
+    #result, #character-name {
+        font-size: 1.2rem; 
+    }
+
+    footer p {
+        font-size: 1rem; 
+    }
+}
+
+@media (max-width: 480px) {
+    
+    header h1 {
+        font-size: 1.5rem; 
+    }
+
+    h2 {
+        font-size: 1.5rem; 
+    }
+
+    #quiz-section {
+        padding: 15px; 
+        top: -20px; 
+    }
+
+    #character-img {
+        max-width: 200px; 
+        height: 250px; 
+    }
+
+    #result, #character-name {
+        font-size: 1rem; 
+    }
+
+    footer p {
+        font-size: 0.9rem; 
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header id="dsq-header">
+        <h1>Demon Slayer Quiz</h1>
+    </header>
+    <main>
+        <section id="quiz-section">
+            <h2>Your Quiz Results:</h2>
+            <div id="result">Your total score and character will appear here after submission.</div>
+            <div id="image-container" style="display:none;">
+                <img id="character-img" src="" alt="Character Image">
+                <p id="character-name"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Developed by Kanika Chauhan</p>
+        <audio loop src="./audio/cinematic-slow-sad-piano-soundtrack-187684.mp3"></audio>
+    </footer>
+</body>
+<script>
+    function displayResult() {
+        const totalScore = sessionStorage.getItem("totalScore");
+        const character = sessionStorage.getItem("character");
+        const characterImage = document.getElementById("character-img");
+        const characterName = document.getElementById("character-name");
+        const imageContainer = document.getElementById("image-container");
+
+        if (totalScore && character) {
+            document.getElementById("result").innerHTML = `Your total score is: ${totalScore}`;
+            
+            let imageUrl = "";
+            switch (character) {
+                case "Shinobu Kocho":
+                    imageUrl = "/images/shinobu.jpg";
+                    break;
+                case "Kyojuro Rengoku":
+                    imageUrl = "/images/rengoku.jpg";
+                    break;
+                case "Tengen Uzui":
+                    imageUrl = "/images/tengen.jpg";
+                    break;
+                case "Giyu Tomioka":
+                    imageUrl = "/images/giyu.jpg";
+                    break;
+                case "Muichiro Tokito":
+                    imageUrl = "/images/mist.jpg";
+                    break;
+                case "Mitsuri Kanroji":
+                    imageUrl = "/images/love.jpg";
+                    break;
+                default:
+                    imageUrl = "/images/ds.jpg";
+                    break;
+            }
+
+            characterImage.src = imageUrl;
+            characterName.innerHTML = `Character: ${character}`;
+            imageContainer.style.display = "block";
+        } else {
+            document.getElementById("result").innerHTML = "No result found.";
+            imageContainer.style.display = "none";
+        }
+    }
+
+    window.onload = displayResult;
+</script>
+</html>

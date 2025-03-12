@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demon Slayer Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+  <meta property="og:title" content="Demon Slayer Quiz" />
+  <meta property="og:description" content="Which Demon Slayer Hashira are you? Take this fun quiz and find out!" />
+  <meta property="og:image" content="https://i.imgur.com/fROyn9w.jpeg" />
+  <meta property="og:url" content="https://demonslayerhashira-quiz.netlify.app/" />
+<meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta name="keywords" content=" Demon Slayer, Kimetsu no Yaiba, Demon Slayer anime, Demon Slayer Quiz, Hashira Quiz, Which Demon Slayer character are you, Demon Slayer personality test, Anime quiz, Find your Hashira, Demon Slayer fan quiz, Demon Slayer character match, Demon Slayer trivia, Demon Slayer motivation quiz, Demon Slayer weapon preference, Anime personality quiz, Demon Slayer fan test, Find your Demon Slayer personality, Demon Slayer ultimate quiz, Kimetsu no Yaiba Quiz, Anime character quiz, Demon Slayer Hashira test, Quiz for Demon Slayer fans, Which Hashira suits you best. ">
+</head>
+<body>
+<header>
+  <h1>Demon Slayer Quiz</h1>
+</header>
+
+<main>
+  <div class="quiz-container">
+    
+    <div id="container-particles"></div> 
+    <h3>Welcome !</h3> <br>
+
+    <section id="start-screen">
+      <p>Which Demon Slayer Hashira Are You ?</p>
+      <label for="name">Enter your name:</label>
+<input type="text" id="name" name="fullName" placeholder="Your name" required>
+<br><br>
+
+      <button onclick="start()">Start Quiz</button>
+    </section>
+
+    <form onsubmit="save(event)">
+      <fieldset>
+        <legend>Question 1: What is your primary motivation?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question1" id="radio1" value="40">
+          <label for="radio1" class="radio-tile">Duty</label>
+      
+          <input type="radio" class="radio-button" name="question1" id="radio2" value="30">
+          <label for="radio2" class="radio-tile">Love</label>
+      
+          <input type="radio" class="radio-button" name="question1" id="radio3" value="20">
+          <label for="radio3" class="radio-tile">Revenge</label>
+      
+          <input type="radio" class="radio-button" name="question1" id="radio4" value="10">
+          <label for="radio4" class="radio-tile">Peace</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 2: What's your preferred weapon?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question2" id="radio5" value="10">
+          <label for="radio5" class="radio-tile">Sword</label>
+      
+          <input type="radio" class="radio-button" name="question2" id="radio6" value="20">
+          <label for="radio6" class="radio-tile">Whip</label>
+      
+          <input type="radio" class="radio-button" name="question2" id="radio7" value="30">
+          <label for="radio7" class="radio-tile">Bow</label>
+      
+          <input type="radio" class="radio-button" name="question2" id="radio8" value="40">
+          <label for="radio8" class="radio-tile">Axe</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 3: How do You handle conflict?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question3" id="radio9" value="20">
+          <label for="radio9" class="radio-tile">Diplomacy</label>
+      
+          <input type="radio" class="radio-button" name="question3" id="radio10" value="40">
+          <label for="radio10" class="radio-tile">Violence</label>
+      
+          <input type="radio" class="radio-button" name="question3" id="radio11" value="10">
+          <label for="radio11" class="radio-tile">Avoidance</label>
+      
+          <input type="radio" class="radio-button" name="question3" id="radio12" value="30">
+          <label for="radio12" class="radio-tile">Negotiation</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 4: What is your preferred fighting style?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question4" id="radio13" value="30">
+          <label for="radio13" class="radio-tile">Offensive</label>
+      
+          <input type="radio" class="radio-button" name="question4" id="radio14" value="10">
+          <label for="radio14" class="radio-tile">Defensive</label>
+      
+          <input type="radio" class="radio-button" name="question4" id="radio15" value="40">
+          <label for="radio15" class="radio-tile">Agile</label>
+      
+          <input type="radio" class="radio-button" name="question4" id="radio16" value="20">
+          <label for="radio16" class="radio-tile">Strategic</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 5: Pick an element</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question5" id="radio17" value="20">
+          <label for="radio17" class="radio-tile">Fire</label>
+      
+          <input type="radio" class="radio-button" name="question5" id="radio18" value="30">
+          <label for="radio18" class="radio-tile">Water</label>
+      
+          <input type="radio" class="radio-button" name="question5" id="radio19" value="10">
+          <label for="radio19" class="radio-tile">Earth</label>
+      
+          <input type="radio" class="radio-button" name="question5" id="radio20" value="40">
+          <label for="radio20" class="radio-tile">Wind</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 6: What's your greatest strength?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question6" id="radio21" value="40">
+          <label for="radio21" class="radio-tile">Bravery</label>
+      
+          <input type="radio" class="radio-button" name="question6" id="radio22" value="10">
+          <label for="radio22" class="radio-tile">Intelligence</label>
+      
+          <input type="radio" class="radio-button" name="question6" id="radio23" value="20">
+          <label for="radio23" class="radio-tile">Strength</label>
+      
+          <input type="radio" class="radio-button" name="question6" id="radio24" value="30">
+          <label for="radio24" class="radio-tile">Compassion</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 7: Choose a role model</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question7" id="radio25" value="30">
+          <label for="radio25" class="radio-tile">Mentor</label>
+      
+          <input type="radio" class="radio-button" name="question7" id="radio26" value="20">
+          <label for="radio26" class="radio-tile">Leader</label>
+      
+          <input type="radio" class="radio-button" name="question7" id="radio27" value="40">
+          <label for="radio27" class="radio-tile">Peacemaker</label>
+      
+          <input type="radio" class="radio-button" name="question7" id="radio28" value="10">
+          <label for="radio28" class="radio-tile">Warrior</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 8: What's your view on leadership?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question8" id="radio29" value="10">
+          <label for="radio29" class="radio-tile">Authoritarian</label>
+      
+          <input type="radio" class="radio-button" name="question8" id="radio30" value="40">
+          <label for="radio30" class="radio-tile">Democratic</label>
+      
+          <input type="radio" class="radio-button" name="question8" id="radio31" value="20">
+          <label for="radio31" class="radio-tile">Passive</label>
+      
+          <input type="radio" class="radio-button" name="question8" id="radio32" value="30">
+          <label for="radio32" class="radio-tile">Servant</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 9: How do you deal with betrayal?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question9" id="radio33" value="20">
+          <label for="radio33" class="radio-tile">Forgiveness</label>
+      
+          <input type="radio" class="radio-button" name="question9" id="radio34" value="10">
+          <label for="radio34" class="radio-tile">Retribution</label>
+      
+          <input type="radio" class="radio-button" name="question9" id="radio35" value="40">
+          <label for="radio35" class="radio-tile">Withdrawal</label>
+      
+          <input type="radio" class="radio-button" name="question9" id="radio36" value="30">
+          <label for="radio36" class="radio-tile">Understanding</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 10: What's your favorite season?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question10" id="radio37" value="10">
+          <label for="radio37" class="radio-tile">Winter</label>
+      
+          <input type="radio" class="radio-button" name="question10" id="radio38" value="30">
+          <label for="radio38" class="radio-tile">Spring</label>
+      
+          <input type="radio" class="radio-button" name="question10" id="radio39" value="40">
+          <label for="radio39" class="radio-tile">Summer</label>
+      
+          <input type="radio" class="radio-button" name="question10" id="radio40" value="20">
+          <label for="radio40" class="radio-tile">Autumn</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 11: What is your biggest fear?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question11" id="radio41" value="10">
+          <label for="radio41" class="radio-tile">Failure</label>
+      
+          <input type="radio" class="radio-button" name="question11" id="radio42" value="20">
+          <label for="radio42" class="radio-tile">Loneliness</label>
+      
+          <input type="radio" class="radio-button" name="question11" id="radio43" value="30">
+          <label for="radio43" class="radio-tile">Weakness</label>
+      
+          <input type="radio" class="radio-button" name="question11" id="radio44" value="40">
+          <label for="radio44" class="radio-tile">Death</label>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>Question 12: What's your dream destination?</legend>
+        <div class="radio-tile-group">
+          <input type="radio" class="radio-button" name="question12" id="radio45" value="20">
+          <label for="radio45" class="radio-tile">Mountains</label>
+      
+          <input type="radio" class="radio-button" name="question12" id="radio46" value="40">
+          <label for="radio46" class="radio-tile">Beach</label>
+      
+          <input type="radio" class="radio-button" name="question12" id="radio47" value="30">
+          <label for="radio47" class="radio-tile">Forest</label>
+      
+          <input type="radio" class="radio-button" name="question12" id="radio48" value="10">
+          <label for="radio48" class="radio-tile">City</label>
+        </div>
+      </fieldset>
+      
+      
+    
+
+      <div class="btn">
+        <button type="button" onclick="prv()">Previous</button>
+        <button type="button" onclick="nxt()">Next</button>
+        <button type="submit" onclick="sub()">Submit</button>
+
+      </div>
+</form>
+  </div>
+</main>
+
+<footer>
+  <div></div>
+  <p>Developed by Kanika Chauhan</p>
+  <audio loop src ="demon_slayer_infinity.mp3"></audio>
+</footer>
+<div id="loading-screen" style="display: none;">
+  <div class="loader">
+    <div class="head"></div>
+    <div class="flames">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    <div class="eye"></div>
+  </div>
+  <p class="loadingtxt">Loading</p> 
+</div>
+
+</body>
+
+</html>
